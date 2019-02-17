@@ -12,10 +12,8 @@ describe('Saving records', function(){
     });
 
     char.save().then(function(){
-      assert(!char.isNew);
+      assert(char.isNew === false);
       done();
     });
-
   });
-
 });

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// ES6 Promises
+// ES6 Promises - overwriting global promise
 mongoose.Promise = global.Promise;
 
 // Connect to db before tests run
@@ -17,9 +17,9 @@ before(function(done){
 
 });
 
-// Drop the characters collection before each test
+// Drop (delete) the characters collection before each test
 beforeEach(function(done){
-    // Drop the collection
+    // Drop (delete) the collection
     mongoose.connection.collections.mariochars.drop(function(){
         done();
     });
