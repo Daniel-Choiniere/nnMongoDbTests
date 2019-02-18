@@ -25,8 +25,10 @@ describe('Updating records', function(){
       });
   });
 
+//   adds 1 to the weight property of every record
  it('Adds 1 to the weight of every record', function(done){
-    MarioChar.update({}, { $inc: { weight: 1 } }).then(function(){
+    //  empty object {} will return every record
+    MarioChar.updateMany({}, { $inc: { weight: 1 } }).then(function(){
         MarioChar.findOne({name: 'Mario'}).then(function(record){
             assert(record.weight === 51);
             done();
